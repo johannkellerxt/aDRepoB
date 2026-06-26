@@ -19,9 +19,9 @@
       "original_namespace" : "",
       "original_publisher" : "",
       "custodian_namespace" : "",
-      "sem_ver" : "0.1.0",
+      "sem_ver" : "1.0.0",
       "build_uid" : "",
-      "MD5-CAM-1.0.1" : "33173740d82101786b8371fb684ba588",
+      "MD5-CAM-1.0.1" : "f0d470945f5643a3283220130f314d04",
       "PARENT:MD5-CAM-1.0.1" : "3B0765A6B395C9D01595FDF2D440E6CB"
     },
     "details" : {
@@ -254,6 +254,15 @@
         "attributeTuples" : [ ],
         "archetypeRef" : "openEHR-EHR-EVALUATION.ovl-social_summary-001.v1",
         "referenceType" : "archetypeOverlay"
+      }, {
+        "@type" : "C_ARCHETYPE_ROOT",
+        "rmTypeName" : "OBSERVATION",
+        "occurrences" : "0..1",
+        "nodeId" : "at0.6",
+        "attributes" : [ ],
+        "attributeTuples" : [ ],
+        "archetypeRef" : "openEHR-EHR-OBSERVATION.ovl-blood_pressure-002.v2",
+        "referenceType" : "archetypeOverlay"
       } ]
     } ],
     "attributeTuples" : [ ]
@@ -405,9 +414,278 @@
       "references" : { },
       "conversionDetails" : { },
       "otherDetails" : {
-        "PARENT:MD5-CAM-1.0.1" : "17D4965B19A8339F74AF049209818DF1"
+        "PARENT:MD5-CAM-1.0.1" : "17D4965B19A8339F74AF049209818DF1",
+        "ip_acknowledgements" : "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org."
       },
-      "details" : { }
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Dient der Dokumentation des systemischen arteriellen Blutdrucks einer Person.",
+          "keywords" : [ "Beobachtungen", "Messungen", "Vitalparameter", "Mittlerer arterieller Druck", "Pulsdruck", "systolisch", "diastolisch", "RR", "Riva-Rocci", "NIBP" ],
+          "use" : "Alle Blutdruckmessungen werden unter Zuhilfenahme dieses Archetypen dokumentiert, unabhängig davon, welche Methode oder Körperstelle zur Messung benutzt wurden. Der Archetyp dient der Dokumentation des Blutdrucks in alle klinischen Szenarien - z.B. durch eine Blutdruckmaschine zuhause; eine Notfallmessung durch Palpation und ein Sphygmomanometer; Messungen beim Hausarzt oder im Rahmen von Belastungstests; sowie einer Serie von Messungen durch eine Maschine auf der Intensivstation.\r\nDer Archetyp beinhaltet ein umfassendes Status-Modell, das die Interpretation der Messung unterstützt, indem Position, Anstrengung, Einflussfaktoren, Neigungswinkel angegeben werden können.\r\nBenannte Ereignisse wurden auf den 24-stündigen Durchschnitt beschränkt, jedoch können Templates jederzeit das standardmäßig vorhandene Ereignis ('any event') weiter einschränken, um spezifischen Anforderungen gerecht zu werden, wie z.B. der Messung zu bestimmten Zeitpunkten, oder über eine Anzahl von Intervallen (+/- mathematische Funktionen).",
+          "misuse" : "Nicht benutzen zur Dokumentation des intravenösen Drucks.\r\nNicht benutzen zur Dokumentation des arteriellen Blutdrucks, welcher KEIN Surrogat für den arteriellen Druck in der systemischen Zirkluation ist, z.B. die spezifische Messung des rechten pulmonaren Arteriendrucks.\r\nIn diesem Fall sollte der OBSERVATION.intravascular_pressure Archetyp bzw. dessen Spezialisierungen verwendet werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи системного артериального давления крови человека.",
+          "keywords" : [ "обследование", "измерение", "артериальное давление", "диастолическое", "систолическое" ],
+          "use" : "Используется для записи всех представлений измерения системного артериального  кровяного давления, независимо от используемого метода или расположения тела пациента. Архетип предназначен для записи измерений давления во всех клинических сценариях - например, самостоятельное измерение давления крови домашним автоматическим манометром, в чрезвычайной  ситуации использование  пальпации пульсовой волны и сфигмоманометр; измерений в ходе клинических консультаций или в ходе осуществления стресс-тестирования, а также серии измерений, выполненных аппаратом в реанимации.\r\nПоддерживает интерпретацию измерений путем определения позиции пациента, физические упражнения, осложняющих факторов и угла наклона стола в научных исследованиях.\r\nПредполаагется интервал между измерениями 24 часа, однако может быть дополнено событиями (по умолчанию \"любое событие\") для удовлетворения специфических требований для измерения кровяного давления, такие как записи в отношении кровяного давления конкретные моменты времени, или в диапазоне интервалов.",
+          "misuse" : "Не следует использовать для внутривенного давления.\r\nНе следует использовать для измерения артериального давления, которое не является суррогатом артериального давления в системном кровотоке, например, конкретные измерения давления в легочной артерии.\r\nИспользовать OBSERVATION.intravascular_pressure и смежных специальностей в обоих этих ситуациях.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera det systemiska arteriella blodtrycket hos en individ.",
+          "keywords" : [ "observation", "mätning", "blodtryck", "vitalparameter", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "SBT", "DBT", "BT", "BP", "SBP", "DBP", "MAP" ],
+          "use" : "Används för att registrera alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. \r\n\r\nArketypen är avsedd för blodtrycksmätningar i alla kliniska scenarier, exempelvis: \r\n\r\n- egna mätningar i hemmet med blodtrycksmätare \r\n\r\n- akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en sfygmomanometer\r\n\r\n- mätningar gjorda vid vårdkonsultationer eller stresstest \r\n\r\n- seriemätningar med blodtrycksmaskiner på intensivvårdsavdelningar \r\n\r\nDet finns en omfattande tillståndsmodell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, ansträngning, vinkel på tippbräda vid undersökning och möjliga felkällor. \r\n\r\nNamngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod. Det är dock möjligt att  ytterligare avgränsa denna standardinställning i \"Ospecificerad händelse\" i en template för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller under ett tidsintervall (+/- matematiska funktioner).",
+          "misuse" : "Ska inte användas för att registrera mätning av arteriellt blodtryck som INTE är ett substitut för artärtryck i den systemiska cirkulationen, exempelvis för specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. \r\n\r\nSka inte användas för att registrera exempelvis specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. \r\n\r\nSka inte användas för att registrera mätning av intravenöst tryck. Använd OBSERVATION.intravascular_pressure och relaterade specialiseringsarketyper i dessa fall.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "Henkilön verenpaineen tallentamiseen.",
+          "keywords" : [ "havainnot, mittaus, verenpaine, vitaalit, keskivaltimopaine, pulssipaine, systolinen, diastolinen, RR, NIBP" ],
+          "use" : "Käytetään systeemisen valtimoverenpaineen mittauksen tallentamiseen riippumatta menetelmästä tai mittauskohdasta.\r\n\r\nArkkityypin avulla kerätään verenpainemittauksia kaikissa kliinisissä skenaarioissa - esimerkiksi:\r\n- omaseuranta kotona verenpainemittarilla;\r\n- systolisen verenpaineen hätäarviointi palpoiden tai verenpainemittarilla;\r\n- terveydenhuollon ammattilaisen suorittamat mittaukset tai rasitustestin aikaiset mittaukset; ja\r\n- tehohoidon aikaiset jatkuvat mittaukset\r\n\r\nTietomallissa voidaan monipuolisesti määritellä mittaustilanne, kuten potilaan asento, liikunta, sekoittavat tekijät ja kallistuspöydän kulma, jotka tukevat mittauksen tulkintaa.\r\n\r\nNimettyjen tapahtumien määrä on rajoitettu 24 tunnin aikaiseen keskiarvoon, mutta templaateilla voidaan edelleen rajoittaa oletusarvoista \"mitä tahansa tapahtumaa\", joka vastaa erityisiä vaatimuksia verenpainemittauksille, kuten verenpaineen tallentaminen tiettyihin ajankohtiin tai tietyin väliajoin (+/- matemaattiset funktiot).",
+          "misuse" : "Ei tule käyttää valtimoverenpaineen mittauksen tallentamiseen, joka ei ole systeemisen verenkierron verenpaineen korvike, esim. Oikean keuhkovaltimon paineen erityinen mittaus. Käytä tässä tilanteessa OBSERVATION.intravascular_pressure-arkkityyppiä.\r\n\r\nEi tule käyttää laskimonsisäisen paineen mittauksen kirjaamiseen. Sovella tässä tilanteessa OBSERVATION.intravascular_pressure -arkkityyppiä.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "개인의 체동맥혈압 기록",
+          "keywords" : [ "*관찰(ko)", "*측정(ko)", "*혈압(ko)", "*생체징후(ko)", "*평균 동맥 혈압(ko)", "*맥압(ko)", "*수축기의(ko)", "*이완기의(ko)", "*호흡수(ko)", "*비침습적 혈압(ko)" ],
+          "use" : "전신 동맥혈압측정의 모든 표현들을 저장하는데 사용, 어떤 방법 또는 신체부위와 관계없이 기록하는데 사용된다. 이 archetype은 모든 임상 시나리오에서 동맥혈압을 획득하기 위한 것이다 - 예를 들어, 가정 혈압기기를 이용한 자가 측정; 타진과 혈압계를 이용한 수축기의 응급평가; 임상 의뢰 또는 운동부하검사에서의 측정; 그리고 중환자실에서 기계에 의한 일련의 측정.\r\n\r\n여기에는 환자 자세, 운동, 혼란 변수 그리고 연구에서 틸트테이블의 각도를 통한 측정의 해석을 지원하는 풍부한 상태 모델(state model)이 있음.\r\n\r\n명명된 events는 24시간 동안의 평균에 제한되어 있지만 templates는 특정 시각 또는 기간(+/- 수학 함수)에 대한 혈압의 기록과 같은 혈압 측정을 위한 특정한 요구사항을 제공하기 위해서 default 'any event'에 추가적인 constrain을 할 수 있음.",
+          "misuse" : "정맥혈압 측정을 위해서 사용되지 않음.\r\n\r\n예를 들어 우폐동맥압과 같은 특별한 측정과 같이 체순환에서의 동맥압을 대신하지 않는 동맥혈압의 측정을 위해 사용되지 않음.\r\n\r\n위의 2가지 상황에서는 OBSERVATION.intravascular_pressure와 관련된 specialisations를 사용해야 함.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registrar a pressão arterial sistêmica de um indivíduo.",
+          "keywords" : [ "observações", "medidas", "PA", "pressão sanguínea", "sinais vitais", "Pressão arterial média", "Pressão de Pulso", "sistólica", "diástólica" ],
+          "use" : "Usado para registrar todas as representações da medida da pressão areterial sistêmica, não importando qual método ou localização corporal usada para registrá-la. O objetivo do arquétipo é capturar a pressão sanguínea em todos os cenários clínicos - por exemplo, auto-medida com um aparelho de pressão caseiro; um avaliação de emergência da pressão sistólica usando palpação e esfigmomanômetro; medidas realizadas em consultas clínicas ou durante testes de esforço; e uma série de medidas feitas por uma máquina em uma Unidade de Terapia Intensiva.\r\nExiste um modelo rico que apoia a interpretação de medidas através da identificação da posição do paciente, nível exercício, gatores confundidores e ângulo de uma mesa de inclinação em uma pesquisa.\r\nEventos nomeados têm sido limitados em médica a um período de 24 horas, entretanto templates podem, posteriormente, restringir o padrão predeterminado 'qualquer evento' para atender a requisitos específicos registro de medida de pressão sanguínea em pontos no tempo específicos, ou em faixas de intervalos (+/-funções matemáticas).",
+          "misuse" : "Não deve ser usada para registrar pressão intravenosa.\r\nNão deve ser usada para medida da pressão arterial que NÃO é um substituto da pressão arterial na circulação sistêmica, por exemplo, medida específica da pressão da artéria Pulmonar direita.\r\nEm ambas situações use OBSERVATION.intravascular_pressure e especializações relacionadas.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "el" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "el"
+          },
+          "purpose" : "Για την καταγραφή της συστηματικής αρτηριακής πίεσης ενός ατόμου.",
+          "keywords" : [ "Παρατηρήσεις", "μέτρηση", "ΒΡ", "Ζωτικά σημεία", "μέση αρτηριακή πίεση", "παλμική πίεση", "Συστολική", "Διαστολική", "RR", "NIBP" ],
+          "use" : "*Use to record all representations of systemic arterial blood pressure measurement, no matter which method or body location is used to record it. \r\n\r\nThe archetype is intended to capture blood pressure measurements in all clinical scenarios - for example:\r\n- self-measurement with a home blood pressure machine; \r\n- an emergency assessment of systolic using palpation and a sphygmomanometer; \r\n- measurements taken in clinical consultations or during exercise stress testing; and \r\n- a series of measurements made by a machine in Intensive Care.   \r\n\r\nThere is a rich state model that supports interpretation of measurements through identifying patient position, exercise, confounding factors and angle of a tilt table in research. \r\n\r\nNamed events have been limited to average over a 24 hour period, however templates can further constrain the default 'any event' to cater for specific requirements for blood pressure measurements such as recording Blood Pressure against specific points in time, or over a range of intervals (+/- mathematical functions).(en)",
+          "misuse" : "*Not to be used to record the measurement of arterial blood pressure which is NOT a surrogate for arterial pressure in the systemic circulation eg specific measurement of right pulmonary artery pressure. Use OBSERVATION.intravascular_pressure in this situation.  \r\n\r\nNot to be used to record measurements of intravenous pressure. Use the appropriate specialisations of OBSERVATION.intravascular_pressure in this situation.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل ضغط الدم الشرياني النظامي للشخص",
+          "keywords" : [ "الملاحظات", "القياس", "ضغط الدم", "العلامات الحياتية", "متوسط الضغط الشرياني", "الضغط عند النبض", "الانقباضي", "الانبساطي", "معدل التنفس", "قياس ضغط الدم غير الباضع" ],
+          "use" : "يستخدم لتسجيل جميع طرق عرض ضغط الدم الشرايني النظامي, بغض النظر عن الطريقة أو الموضع من الجسم المستخدم في التسجيل.\r\n\r\nيستخدم هذا النموذج لالتقاط قياسات ضغط الدم في جميع السيناريوهات السريرية - مثلا, قياس ضغط الدم بواسطة الشخص لنفسه باستخدام آلة القياس المنزلية, تقييم الضغط الانقباضي في حالة الطوارئ باستخدام المجس و مقياس الضغط الزئبقي, القياسات التي تم أخذها في الاستشارات السريرية أو في أثناء اختبار الضغط البدني, و سلسلة من القياسات التي تتم باستخدام آلات العناية المركزة.\r\n\r\nيستخدم هذا النموذج الغني في تسجيل حالات القياس من خلال تفسيره في ضوء وضع المريض عند القياس, المجهود البدني, العوامل المربكة, و زاوية انحناء الطاولة المستخدمة عند القياس.\r\n\r\nتم تحديد بعض الوقائع إلى المتوسط خلال 24 ساعة, إلا أن القوالب تستطيع تقييد الاختيار التلقائي (إحدى الوقائع) لمتطلبات معينة حول قياسات ضغط الدم مثل تسجيل ضغط الدم في نقاط زمنية معينة أو خلال مدى من الفواصل الزمنية - زائد أو ناقص دوال حسابية",
+          "misuse" : "لا يستخدم لتسجيل الضغط داخل الوريد.\r\nلا يستخدم لقياس ضغط الدم الشرياني الذي لا يحل بديلا عن ضغط الدم الشرياني في الدورة الجهازية مثل قياسات معينة لضغط الشريان الرئوي الأيمن.\r\nاستخدم نموذج ملاحظة. الضغط داخل الأوعية الدموية , و التخصيصات المتعلقة في كل من هذين الموقفين.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the systemic arterial blood pressure of an individual.",
+          "keywords" : [ "observations", "measurement", "bp", "vital signs", "mean arterial pressure", "pulse pressure", "systolic", "diastolic", "RR", "NIBP" ],
+          "use" : "Use to record all representations of systemic arterial blood pressure measurement, no matter which method or body location is used to record it. \r\n\r\nThe archetype is intended to capture blood pressure measurements in all clinical scenarios - for example:\r\n- self-measurement with a home blood pressure machine; \r\n- an emergency assessment of systolic using palpation and a sphygmomanometer; \r\n- measurements taken in clinical consultations or during exercise stress testing; and \r\n- a series of measurements made by a machine in Intensive Care.   \r\n\r\nThere is a rich state model that supports interpretation of measurements through identifying patient position, exercise, confounding factors and angle of a tilt table in research. \r\n\r\nNamed events have been limited to average over a 24 hour period, however templates can further constrain the default 'any event' to cater for specific requirements for blood pressure measurements such as recording Blood Pressure against specific points in time, or over a range of intervals (+/- mathematical functions).",
+          "misuse" : "Not to be used to record the measurement of arterial blood pressure which is NOT a surrogate for arterial pressure in the systemic circulation eg specific measurement of right pulmonary artery pressure. Use OBSERVATION.intravascular_pressure in this situation.  \r\n\r\nNot to be used to record measurements of intravenous pressure. Use the appropriate specialisations of OBSERVATION.intravascular_pressure in this situation.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "旨在记录一个人的体循环血压（systemic blood pressure，全身血压，系统血压）。此测量结果原始型记录的是收缩压和舒张压，所采取的记录方式适合于视为代表全身体循环血压的结果。",
+          "keywords" : [ "观察", "观测", "观察指标", "观测指标", "观察结果", "观测结果", "观察项目", "观测项目", "检测", "测量", "测定", "检测指标", "测量指标", "测定指标", "检测结果", "测量结果", "测定结果", "检测项目", "测量项目", "测定项目", "血压", "blood pressure", "bp", "生命体征", "体征", "平均动脉压", "脉压", "脉搏压", "收缩压", "舒张压", "收缩期", "舒张期", "RR", "无创性测压法", "non-invasive blood pressure", "NIBP" ],
+          "use" : "用于记录体循环血压测量结果的所有表达形式，无论其用于记录结果的究竟是什么方法或身体位置。本原始型旨在采集所有临床场景下的血压测量结果；例如，采用家用血压测量仪进行的自助检测、采用触诊方法和血压计进行的收缩压紧急评估、临床会诊或运动负荷试验过程中进行的测量以及重症监护过程中利用仪器所完成的一系列测量。\r\n这是一个丰富的状态模型，支持通过确定患者体位、运动情况、干扰因素以及研究工作所采用的倾斜工作台的角度，来解释测量结果。\r\n具名事件（named events）仅限于24小时期间的均值；不过，可以利用模板来进一步约束默认的“any event”（任何事件），以满足关于血压测量的具体需要，诸如按具体的时间点（时刻）来记录血压，或者是记录为变化范围（+/-数学函数）。",
+          "misuse" : "并不用于静脉内血压。\r\n并不用于并非代表体循环动脉压的动脉血压的测量，如右肺动脉压的专用测量指标。\r\n在上述这两种情况下，请采用血管内压力观察指标原始型（OBSERVATION.intravascular_pressure）及相关的特化形式。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registro de la presión arterial sistémica de un paciente.",
+          "keywords" : [ "observaciones", "medición", "presión arterial", "signos vitales", "presión arterial media", "presión del pulso", "sistólica", "diastólica", "FR", "PANI" ],
+          "use" : "Utilícese para registrar todas las mediciones de la presión arterial sistémica, independientemente del método o la ubicación corporal que se utilice para registrarla. \r\n\r\nEl arquetipo está diseñado para capturar mediciones de la presión arterial en todos los escenarios clínicos, por ejemplo:\r\n- automedición con un tensiómetro doméstico;\r\n- evaluación de emergencia de la presión sistólica mediante palpación y esfigmomanómetro;\r\n- mediciones realizadas en consultas clínicas o durante pruebas de esfuerzo; y\r\n- una serie de mediciones realizadas por una máquina en cuidados intensivos. \r\n\r\nExiste un modelo de estado muy completo que permite interpretar las mediciones mediante la identificación de la posición del paciente, el ejercicio, los factores de confusión y el ángulo de una mesa basculante en la investigación. \r\n\r\nLos eventos nombrados se han limitado a la media de un periodo de 24 horas, sin embargo, las plantillas pueden restringir aún más el «cualquier evento» predeterminado para adaptarse a requisitos específicos de las mediciones de la presión arterial, como el registro de la presión arterial en momentos específicos o en un rango de intervalos (+/- funciones matemáticas).",
+          "misuse" : "No debe utilizarse para registrar la medición de la presión arterial, que NO es un sustituto de la presión arterial en la circulación sistémica, por ejemplo, la medición específica de la presión de la arteria pulmonar derecha. En este caso, utilice OBSERVATION.intravascular_pressure.\r\n\r\nNo debe utilizarse para registrar mediciones de la presión intravenosa. En este caso, utilice las especializaciones adecuadas de OBSERVATION.intravascular_pressure.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar la presión arterial sistémica de un individuo",
+          "keywords" : [ "observaciones(sp)", "mediciones(sp)", "presión arterial(sp)", "signos vitales(sp)", "presión arterial media(sp)", "presión pulso(sp)", "sistólica(sp)", "diastólica(sp)", "RR(en)", "Presión Arterial No Invasiva(sp)", "PANI(sp)" ],
+          "use" : "Usar para registrar todas las representaciones de la presión arterial sistémica, sin importar que método o localización del cuerpo se use para el registro. El arquetipo se usa para capturar la medida de la presión arterial en todos los escenarios clínicos - por ejemplo: automedición con un tensiómetro de uso domiciliario; la evaluación en situación de emergencia, de la sistólica usando palpación y un esfingomanómetro; medidas tomadas durante la consulta clínica o durante la prueba de esfuerzo (ergometría); y la serie de medidas automáticas hechas en la Unidad de Cuidados Intensivos.\r\nExiste un variado modelo de situaciones que soporta la interpretación de mediciones a través de la interpretación de la posición del paciente, ejercicio, factores confluentes y el ángulo de inclinación de la camilla en situaciones de investigación.\r\nLos eventos se han limitado a promediarse sobre un intervalo de 24 horas, sin embargo plantillas pueden acotar la medida por defecto 'cualquier evento' para ajustarse a requerimientos específicos de medida de la presión arterial como el Registro de la Tensión Arterial durante momentos específicos de tiempo, o sobre un rango de intervalos (+/- funciones matemáticas)\r\n\r\n ",
+          "misuse" : "No debe usarse para la presión intravenosa\r\nNo debe usarse para la medida de la presión arterial que NO deriva de la presión arterial de la circulación sistémica ej: la medida específica de la presión de la arteria Pulmonar (presión capilar)\r\nUsen Observación.presión_intravascular y especializaciones relacionadas para estas dos situaciones en particular.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For registrering av et individs systemiske arterielle blodtrykk.",
+          "keywords" : [ "BT", "NIBP", "pulstrykk", "pulsamplitude", "MAP", "IBP", "IBPM", "ABP", "ambulatorisk", "24t", "BP", "ikke-invasivt", "invasivt", "NIBPS", "NIBPD", "NIBPM", "middelarterietrykk", "SAP", "DAP", "PP", "systolisk", "diastolisk", "blodtrykk" ],
+          "use" : "Brukes til å registrere alle typer av systemisk arteriell blodtrykksmåling, uansett hvilken metode eller kroppsplassering som anvendes. Arketypen er ment for registrering av blodtrykksmåling i alle kliniske scenarier - for eksempel selvmåling med blodtrykksapparat hjemme, akutt måling av det systoliske blodtrykket ved radialispalpasjon og et sfygmomanometer, målinger tatt i kliniske konsultasjoner eller under trening/stresstesting, eller en serie med invasive eller noninvasive målinger i en intensivavdeling.\r\n\r\nArketypen understøtter registrering av målinger tatt under de fleste forhold med hensyn til individets stilling (liggende/sittende/stående osv.), under trening inklusiv kompliserende faktorer som for eksempel vinkelen på leiet i forbindelse med forskning.\r\n\r\nSpesifiserte hendelser er begrenset til gjennomsnittstrykket gjennom en periode på 24 timer, men i templates kan man ved hjelp av \"uspesifisert hendelse\" oppfylle spesifikke krav til blodtrykksmåling, som registrering av blodtrykk på bestemte tidspunkter, serier av målinger, eller over en periode (med eller uten matematiske funksjoner som minimum eller maksimum).",
+          "misuse" : "Anvendes ikke til sentralvenøst trykk. \r\n\r\nAnvendes ikke til måling av arterielle blodtrykk som ikke representerer et systemisk arterielt trykk f.eks spesifikk måling av pulmonalt arterietrykk.\r\n\r\nBruk OBSERVATION.intravascular_pressure og relaterte spesialiseringer i disse situasjonene.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ja" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ja"
+          },
+          "purpose" : "個々人の全身における動脈血圧を記録するためのもの。",
+          "keywords" : [ "観察", "測定", "血圧", "バイタルサイン", "平均動脈圧", "脈圧", "収縮期", "拡張期", "RR間隔", "非観血血圧" ],
+          "use" : "測定方法や身体部位を問わず、すべての血圧についての表現を記録するために使用される。このアーキタイプはすべての臨床シナリオを網羅することを目指している。以下に例を挙げる。\r\n- 家庭用血圧計で自己測定した血圧\r\n- 緊急時の評価として触診法で血圧計で測定された収縮期圧\r\n- 臨床上のコンサルテーションや運動負荷テストの間に測定されたもの\r\n- 集中治療において機械的に計測された一連の血圧などである。\r\n患者の体位や運動負荷、交絡因子やティルト台の角度など識別することにより、研究にて計測状態の解釈を手助けする豊富なステートモデルもある。\r\n24時間平均血圧だけが特定のイベントとして名前がつけられているが、テンプレートではデフォルトの「任意のイベント」にさらなる制約を加えることで、特定の時間や間隔を指定したり（数学的機能を追加したり、削除して）、血圧を記録するように、血圧測定に対する特定の要求を行ったイベントを指定することができる。",
+          "misuse" : "たとえば、右肺動脈の血圧を特定の計測を行うように全身循環を表す指標としての代わりとならないような動脈血圧の測定には用いない。このような場合には、OBSERVATION.intravascular_pressureを利用すること。\r\n血管内圧の測定には用いられない。このような場合には、適切に特殊化されたOBSERVATION.intravascular_pressureを利用すること",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "ثبت نمودن فشار خون وریدی کل یک فرد",
+          "keywords" : [ "مشاهدات", "اندازه گیری", "فشار خون", "علایم حیاتی", "میانگین فشار وریدی", "فشار نبض", "سیستولیک", "دیاستولیک", "تنفسهای سریع", "فشار خون غیر تهاجمی" ],
+          "use" : "برای ثبت هر چیز نشاندهنده اندازه گیری فشاره خون وریدی کل، جدا از ابنکه برای ثبت آن از چه شیوه ای یا کدام بخش از بدن استفاده شده باشد، بکار می رود. این الگوساز برای گردآوری اندازه گیری فشار خون در همه سناریوهای بالینی طراحی شده است، مانند اندازه گیری توسط خود فرد بوسیله دستگاه فشار خون خانگی، ارزیابی اورژانسی سیستولیک با لمس نبض و یک \"فشارسنج خون\"، اندازه گیریهای انجام گرفته در مشاوره بالینی یا حین تست ورزشی، و یا یک رشته از اندازه گیریهای دستگاه مراقبت های ویژه.\r\nمدل حالت توانمندی وجود دارد که تفسیر اندازه گیری ها را از طریق شناسایی موقعیت بیمار، ورزش، فاکتورهای مبهم و تست تخت شیبدار، پشتیبانی می کند.\r\nرویدادهای نام گذاری شده بگونه ای محدود شده اند که روی یک دوره 24 ساعته میانگین گیری کنند هر چند که الگو ها می توانند پیش فرض -هر گونه  رویداد- را برای فراهم کردن خواسته های خاص از اندازه گیری فشار خون، با محدودیتهایی نظیر ثبت فشار خون سر وقت یا روی رنجی از فاصله های زمانی (با عمل جمع یا منها)، بیشتر محدود کنند \r\n",
+          "misuse" : "برای فشار داخل وریدی استفاده نشود.\r\nبرای اندازه گیری فشار خون وریدی نباید استفاده شود که جایگزینی برای فشار وریدی در گردش خون کلی نیست، بعنوان مثال اندازه گیری خاص فشار وریدی ریه راست.\r\n\r\n و تخصص های مربوطه برای موارد بالا بکار رود\"OBSERVATION.intravascular_pressure\"\r\n \r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Het registreren van de systemische arteriële bloeddruk van een individu.",
+          "keywords" : [ "observaties", "meting", "blddr", "vitale functies", "gemiddelde arteriële druk", "polsdruk", "systolisch", "diastolisch", "RR", "NIBP", "tensie" ],
+          "use" : "Wordt gebruikt om alle weergaven van de systemische bloeddruk te registreren, ongeacht welke methode of welke lichaamslocatie is gebruikt om de meting te doen. \r\n\r\nHet archetype is bedoeld om bloeddruk metingen in alle klinische scenario's vast te leggen - bijvoorbeeld:\r\n- zelf-meting met een thuis bloeddrukmeter; \r\n- een nood beoordeling van de systolische bloeddruk met behulp van palpatie en een drukmanchet; \r\n- metingen tijdens consulten, overleg of tijdens inspannings stress testen, en \r\n- een reeks van metingen die door een apparaat zijn gedaan in de intensieve zorg.\r\n\r\nEr is een uitgebreid status model dat interpretatie van metingen ondersteunt, door patiënt positie, inspanning, beïnvloedende factoren en de hoek/het aantal graden waarin de onderzoekstafel staat, te specificeren.\r\n\r\nGenoemde gebeurtenissen zijn gelimiteerd tot een gemiddelde over een periode van 24 uur, maar templates kunnen de standaard 'iedere gebeurtenis' verder vernauwen om specifieke eisen voor de bloeddrukmeting, zoals registreren van de bloeddruk op een specifiek tijdsmoment, of over een reeks van intervallen (+/- statistisch gebruik) te faciliteren.\r\n",
+          "misuse" : "Niet te gebruiken voor de meting van de arteriële bloeddruk welke geen surrogaat is voor de arteriële druk in de systemische circulatie, bv de specifieke meting van de rechter arterie pulmonalis druk.\r\nGebruik OBSERVATION.intravascular_pressure in deze situatie.\r\n\r\nNiet te gebruiken voor intraveneuze druk. Gebruik een van de OBSERVATION.intravascular_pressure specialisaties in deze situatie.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ca" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ca"
+          },
+          "purpose" : "Registrar la pressió arterial d'un pacient.",
+          "keywords" : [ "observacions", "mesura", "pressió arterial", "signes vitals", "pressió arterial mitjana", "pressió de pols", "sistòlica", "diastòlica", "freqüència respiratòria", "pressió arterial no invasiva" ],
+          "use" : "Utilitzar per a registrar totes les representacions de la mesura sistemàtica de la pressió arterial, independentment del mètode o la part del cos que s'utilitzi per registrar-la. \r\n\r\nL'arquetip està destinat a capturar mesures de la pressió arterial en tots els escenaris clínics, per exemple: \r\n\r\n- automedició amb un tensiòmetre domèstic; \r\n\r\n- avaluació d'emergència de la pressió arterial sistòlica mitjançant la palpitació i un esfigmomanòmetre; \r\n\r\n- mesures preses en consultes clíniques o durant proves d'esforç físic; i\r\n\r\n- mesures realitzades per una màquina a la Unitat de Cures Intensives.",
+          "misuse" : "No utilitzar per a registrar la mesura de la pressió arterial que NO sigui substituta de la pressió arterial de la circulació sistemàtica. Per exemple, una mesura específica de la pressió de l'artèria pulmonar dreta. Utilitzar OBSERVATION.intravascular_pressure en aquesta situació. \r\n\r\n No utilitzar per registrar mesures de pressió intravenosa. Utilitzar les especialitzacions apropiades de OBSERVATION.intravascular_pressure en aquesta situació.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-OBSERVATION.blood_pressure.v2",
     "differential" : true,
@@ -774,7 +1052,55 @@
       "otherDetails" : {
         "PARENT:MD5-CAM-1.0.1" : "42E30743E5A093075AA65AAF9B890DC0"
       },
-      "details" : { }
+      "details" : {
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For å registrere et fritekstsammendrag om sosiale omstendigheter, opplevelser eller erfaringer som kan ha en innvirkning på et individs helse. Arketypen gir et rammeverk der en kan nøste detaljerte CLUSTER-arketyper som beskriver ulike aspekter av sosiale omstendigheter, opplevelser eller erfaringer i detalj.",
+          "keywords" : [ "sosial", "familie", "partner", "utdanning", "utdannelse", "arbeid", "jobb", "ansettelse", "miljø", "omgivelser", "bolig", "boforhold", "økonomi", "fritid", "hobby", "aktivitet", "religion", "etnisitet", "språk", "nasjonalitet", "livssyn", "mestringsevne", "erfaringer", "natur", "karakter", "adferdsmønster" ],
+          "use" : "Brukes for å registrere et fritekstsammendrag om sosiale omstendigheter eller opplevelser som kan ha en innvirkning på et individs helse. \r\n\r\nBrukes for å inkludere fritekstbeskrivelser av sosiale omstendigheter eller erfaringer som allerede er registrert i eksisterende kliniske systemer til et arketypeformat.\r\n\r\nBruk som en kontainer arketype for å gi en felles gjenfinnbar ENTRY-arketype som kan inneholde detaljerte CLUSTER-arketyper. Eksempler på passende CLUSTER-arketyper kan være nære relasjoner, sosial støtte, boligforhold, arbeid, utdannelse og livssyn.\r\n\r\nBruken av uttrykket \"Sosialanamnese\" har stor variasjon. Arketypen er utviklet for å tillate representasjon av ulike konsepter som utrykker sosialanamnese i ulike kliniske sammenhenger ved hjelp av en blanding av gjenbrukbare CLUSTER-arketyper.",
+          "misuse" : "Brukes ikke for å registrere informasjon relatert til livsstil. For eksempel: Bruk spesifikke arketyper for bruk av alkohol, tobakk og andre substanser, kosthold og ernæring, og fysisk aktivitet.",
+          "copyright" : "© National E-Health Transition Authority, openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record a narrative summary about social circumstances or experiences that may have a potential impact on an individual's health, and to provide a framework in which to nest detailed CLUSTER archetypes, each of which will describe the various aspects of social circumstances or experiences in detail.",
+          "keywords" : [ "social", "family", "education", "occupation", "environment", "housing", "finances", "social history" ],
+          "use" : "Use to record a narrative summary about social circumstances or experiences that may have a potential impact on an individual's health.\r\n\r\nUse to incorporate the narrative descriptions of social circumstances or experiences already captured within existing clinical systems into an archetyped format.\r\n\r\nUse as a container archetype - to provide a common, queryable ENTRY archetype in which specific, detailed CLUSTER archetypes can be nested. Examples of appropriate CLUSTER archetypes may include, and are not limited to, relationships with others, social supports, living arrangements, employment, education and religion.\r\n\r\nThe use of the term 'social summary' varies enormously in practice. This archetype has been designed to allow the concepts that express social history in varying clincial contexts to be represented with the appropriate mix of re-useable archetypes.",
+          "misuse" : "Not to be used to record Lifestyle-related information - for example, use specific archetypes for alcohol, tobacco and other substance use; diet and nutrition; and physical activity.",
+          "copyright" : "© National E-Health Transition Authority, openEHR Foundation, Nasjonal IKT HF",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "it" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "it"
+          },
+          "purpose" : "Registrare una sintesi narrativa sulle circostanze o esperienze sociali che possono avere un potenziale impatto sulla salute di un individuo, e fornire un quadro in cui annidare gli archetipi dettagliati di CLUSTER, ognuno dei quali descriverà in dettaglio i vari aspetti delle circostanze o delle esperienze sociali.",
+          "keywords" : [ "sociale", "famiglia", "educazione", "occupazione", "ambiente", "Alloggiamento", "finanze", "storia sociale" ],
+          "use" : "Utilizzare per registrare un riassunto narrativo su circostanze o esperienze sociali che possono avere un potenziale impatto sulla salute di un individuo.\r\n\r\nUtilizzare per incorporare le descrizioni narrative di circostanze o esperienze sociali già catturate all'interno di sistemi clinici esistenti in un formato archetipizzato.\r\n\r\nUso come archetipo contenitore - per fornire un archetipo comune e interrogabile di ENTRY in cui possono essere annidati specifici e dettagliati archetipi di CLUSTER. Esempi di archetipi di CLUSTER appropriati possono includere, e non sono limitati a, relazioni con gli altri, supporti sociali, organizzazione della vita, occupazione, istruzione e religione.\r\n\r\nL'uso del termine \"riassunto sociale\" varia enormemente nella pratica. Questo archetipo è stato progettato per consentire di rappresentare i concetti che esprimono la storia sociale in diversi contesti clinici con il giusto mix di archetipi riutilizzabili.",
+          "misuse" : "Da non utilizzare per registrare informazioni relative allo stile di vita - per esempio, utilizzare archetipi specifici per l'uso di alcol, tabacco e altre sostanze; dieta e nutrizione; e attività fisica.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
     },
     "parentArchetypeId" : "openEHR-EHR-EVALUATION.social_summary.v1",
     "differential" : true,
@@ -840,6 +1166,774 @@
         "email" : "paolo.anedda@inpeco.com"
       },
       "otherDetails" : { }
+    } ]
+  }, {
+    "@type" : "TEMPLATE_OVERLAY",
+    "uid" : "57c0afbc-3c3b-4ce9-9bee-c6b4a0246b68",
+    "description" : {
+      "@type" : "RESOURCE_DESCRIPTION",
+      "originalAuthor" : { },
+      "otherContributors" : [ ],
+      "ipAcknowledgements" : { },
+      "references" : { },
+      "conversionDetails" : { },
+      "otherDetails" : {
+        "PARENT:MD5-CAM-1.0.1" : "17D4965B19A8339F74AF049209818DF1",
+        "ip_acknowledgements" : "This artefact includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyrighted material of the International Health Terminology Standards Development Organisation (IHTSDO). Where an implementation of this artefact makes use of SNOMED CT content, the implementer must have the appropriate SNOMED CT Affiliate license - for more information contact https://www.snomed.org/snomed-ct/get-snomed or info@snomed.org."
+      },
+      "details" : {
+        "de" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "de"
+          },
+          "purpose" : "Dient der Dokumentation des systemischen arteriellen Blutdrucks einer Person.",
+          "keywords" : [ "Beobachtungen", "Messungen", "Vitalparameter", "Mittlerer arterieller Druck", "Pulsdruck", "systolisch", "diastolisch", "RR", "Riva-Rocci", "NIBP" ],
+          "use" : "Alle Blutdruckmessungen werden unter Zuhilfenahme dieses Archetypen dokumentiert, unabhängig davon, welche Methode oder Körperstelle zur Messung benutzt wurden. Der Archetyp dient der Dokumentation des Blutdrucks in alle klinischen Szenarien - z.B. durch eine Blutdruckmaschine zuhause; eine Notfallmessung durch Palpation und ein Sphygmomanometer; Messungen beim Hausarzt oder im Rahmen von Belastungstests; sowie einer Serie von Messungen durch eine Maschine auf der Intensivstation.\r\nDer Archetyp beinhaltet ein umfassendes Status-Modell, das die Interpretation der Messung unterstützt, indem Position, Anstrengung, Einflussfaktoren, Neigungswinkel angegeben werden können.\r\nBenannte Ereignisse wurden auf den 24-stündigen Durchschnitt beschränkt, jedoch können Templates jederzeit das standardmäßig vorhandene Ereignis ('any event') weiter einschränken, um spezifischen Anforderungen gerecht zu werden, wie z.B. der Messung zu bestimmten Zeitpunkten, oder über eine Anzahl von Intervallen (+/- mathematische Funktionen).",
+          "misuse" : "Nicht benutzen zur Dokumentation des intravenösen Drucks.\r\nNicht benutzen zur Dokumentation des arteriellen Blutdrucks, welcher KEIN Surrogat für den arteriellen Druck in der systemischen Zirkluation ist, z.B. die spezifische Messung des rechten pulmonaren Arteriendrucks.\r\nIn diesem Fall sollte der OBSERVATION.intravascular_pressure Archetyp bzw. dessen Spezialisierungen verwendet werden.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ru" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ru"
+          },
+          "purpose" : "Для записи системного артериального давления крови человека.",
+          "keywords" : [ "обследование", "измерение", "артериальное давление", "диастолическое", "систолическое" ],
+          "use" : "Используется для записи всех представлений измерения системного артериального  кровяного давления, независимо от используемого метода или расположения тела пациента. Архетип предназначен для записи измерений давления во всех клинических сценариях - например, самостоятельное измерение давления крови домашним автоматическим манометром, в чрезвычайной  ситуации использование  пальпации пульсовой волны и сфигмоманометр; измерений в ходе клинических консультаций или в ходе осуществления стресс-тестирования, а также серии измерений, выполненных аппаратом в реанимации.\r\nПоддерживает интерпретацию измерений путем определения позиции пациента, физические упражнения, осложняющих факторов и угла наклона стола в научных исследованиях.\r\nПредполаагется интервал между измерениями 24 часа, однако может быть дополнено событиями (по умолчанию \"любое событие\") для удовлетворения специфических требований для измерения кровяного давления, такие как записи в отношении кровяного давления конкретные моменты времени, или в диапазоне интервалов.",
+          "misuse" : "Не следует использовать для внутривенного давления.\r\nНе следует использовать для измерения артериального давления, которое не является суррогатом артериального давления в системном кровотоке, например, конкретные измерения давления в легочной артерии.\r\nИспользовать OBSERVATION.intravascular_pressure и смежных специальностей в обоих этих ситуациях.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "sv" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "sv"
+          },
+          "purpose" : "Att registrera det systemiska arteriella blodtrycket hos en individ.",
+          "keywords" : [ "observation", "mätning", "blodtryck", "vitalparameter", "vitaltecken", "medelartärtryck", "pulstryck", "systoliskt", "diastoliskt", "SBT", "DBT", "BT", "BP", "SBP", "DBP", "MAP" ],
+          "use" : "Används för att registrera alla systemiskt arteriella blodtryck, oavsett vilka metoder som använts och var på kroppen mätningen gjordes. \r\n\r\nArketypen är avsedd för blodtrycksmätningar i alla kliniska scenarier, exempelvis: \r\n\r\n- egna mätningar i hemmet med blodtrycksmätare \r\n\r\n- akutbedömningar av det systoliska blodtrycket med hjälp av palpation och en sfygmomanometer\r\n\r\n- mätningar gjorda vid vårdkonsultationer eller stresstest \r\n\r\n- seriemätningar med blodtrycksmaskiner på intensivvårdsavdelningar \r\n\r\nDet finns en omfattande tillståndsmodell som stödjer tolkningen av mätningar genom identifiering av patientens ställning, ansträngning, vinkel på tippbräda vid undersökning och möjliga felkällor. \r\n\r\nNamngivna händelser har begränsats till ett genomsnitt under en 24-timmarsperiod. Det är dock möjligt att  ytterligare avgränsa denna standardinställning i \"Ospecificerad händelse\" i en template för att möta specifika krav på blodtrycksmätningar, exempelvis mätningar av blodtryck vid specifika tidpunkter eller under ett tidsintervall (+/- matematiska funktioner).",
+          "misuse" : "Ska inte användas för att registrera mätning av arteriellt blodtryck som INTE är ett substitut för artärtryck i den systemiska cirkulationen, exempelvis för specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. \r\n\r\nSka inte användas för att registrera exempelvis specifika mätningar av artärtryck i höger lungartär. Använd OBSERVATION.intravascular_pressure i dessa fall. \r\n\r\nSka inte användas för att registrera mätning av intravenöst tryck. Använd OBSERVATION.intravascular_pressure och relaterade specialiseringsarketyper i dessa fall.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fi" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fi"
+          },
+          "purpose" : "Henkilön verenpaineen tallentamiseen.",
+          "keywords" : [ "havainnot, mittaus, verenpaine, vitaalit, keskivaltimopaine, pulssipaine, systolinen, diastolinen, RR, NIBP" ],
+          "use" : "Käytetään systeemisen valtimoverenpaineen mittauksen tallentamiseen riippumatta menetelmästä tai mittauskohdasta.\r\n\r\nArkkityypin avulla kerätään verenpainemittauksia kaikissa kliinisissä skenaarioissa - esimerkiksi:\r\n- omaseuranta kotona verenpainemittarilla;\r\n- systolisen verenpaineen hätäarviointi palpoiden tai verenpainemittarilla;\r\n- terveydenhuollon ammattilaisen suorittamat mittaukset tai rasitustestin aikaiset mittaukset; ja\r\n- tehohoidon aikaiset jatkuvat mittaukset\r\n\r\nTietomallissa voidaan monipuolisesti määritellä mittaustilanne, kuten potilaan asento, liikunta, sekoittavat tekijät ja kallistuspöydän kulma, jotka tukevat mittauksen tulkintaa.\r\n\r\nNimettyjen tapahtumien määrä on rajoitettu 24 tunnin aikaiseen keskiarvoon, mutta templaateilla voidaan edelleen rajoittaa oletusarvoista \"mitä tahansa tapahtumaa\", joka vastaa erityisiä vaatimuksia verenpainemittauksille, kuten verenpaineen tallentaminen tiettyihin ajankohtiin tai tietyin väliajoin (+/- matemaattiset funktiot).",
+          "misuse" : "Ei tule käyttää valtimoverenpaineen mittauksen tallentamiseen, joka ei ole systeemisen verenkierron verenpaineen korvike, esim. Oikean keuhkovaltimon paineen erityinen mittaus. Käytä tässä tilanteessa OBSERVATION.intravascular_pressure-arkkityyppiä.\r\n\r\nEi tule käyttää laskimonsisäisen paineen mittauksen kirjaamiseen. Sovella tässä tilanteessa OBSERVATION.intravascular_pressure -arkkityyppiä.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ko" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ko"
+          },
+          "purpose" : "개인의 체동맥혈압 기록",
+          "keywords" : [ "*관찰(ko)", "*측정(ko)", "*혈압(ko)", "*생체징후(ko)", "*평균 동맥 혈압(ko)", "*맥압(ko)", "*수축기의(ko)", "*이완기의(ko)", "*호흡수(ko)", "*비침습적 혈압(ko)" ],
+          "use" : "전신 동맥혈압측정의 모든 표현들을 저장하는데 사용, 어떤 방법 또는 신체부위와 관계없이 기록하는데 사용된다. 이 archetype은 모든 임상 시나리오에서 동맥혈압을 획득하기 위한 것이다 - 예를 들어, 가정 혈압기기를 이용한 자가 측정; 타진과 혈압계를 이용한 수축기의 응급평가; 임상 의뢰 또는 운동부하검사에서의 측정; 그리고 중환자실에서 기계에 의한 일련의 측정.\r\n\r\n여기에는 환자 자세, 운동, 혼란 변수 그리고 연구에서 틸트테이블의 각도를 통한 측정의 해석을 지원하는 풍부한 상태 모델(state model)이 있음.\r\n\r\n명명된 events는 24시간 동안의 평균에 제한되어 있지만 templates는 특정 시각 또는 기간(+/- 수학 함수)에 대한 혈압의 기록과 같은 혈압 측정을 위한 특정한 요구사항을 제공하기 위해서 default 'any event'에 추가적인 constrain을 할 수 있음.",
+          "misuse" : "정맥혈압 측정을 위해서 사용되지 않음.\r\n\r\n예를 들어 우폐동맥압과 같은 특별한 측정과 같이 체순환에서의 동맥압을 대신하지 않는 동맥혈압의 측정을 위해 사용되지 않음.\r\n\r\n위의 2가지 상황에서는 OBSERVATION.intravascular_pressure와 관련된 specialisations를 사용해야 함.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "pt-br" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "pt-br"
+          },
+          "purpose" : "Para registrar a pressão arterial sistêmica de um indivíduo.",
+          "keywords" : [ "observações", "medidas", "PA", "pressão sanguínea", "sinais vitais", "Pressão arterial média", "Pressão de Pulso", "sistólica", "diástólica" ],
+          "use" : "Usado para registrar todas as representações da medida da pressão areterial sistêmica, não importando qual método ou localização corporal usada para registrá-la. O objetivo do arquétipo é capturar a pressão sanguínea em todos os cenários clínicos - por exemplo, auto-medida com um aparelho de pressão caseiro; um avaliação de emergência da pressão sistólica usando palpação e esfigmomanômetro; medidas realizadas em consultas clínicas ou durante testes de esforço; e uma série de medidas feitas por uma máquina em uma Unidade de Terapia Intensiva.\r\nExiste um modelo rico que apoia a interpretação de medidas através da identificação da posição do paciente, nível exercício, gatores confundidores e ângulo de uma mesa de inclinação em uma pesquisa.\r\nEventos nomeados têm sido limitados em médica a um período de 24 horas, entretanto templates podem, posteriormente, restringir o padrão predeterminado 'qualquer evento' para atender a requisitos específicos registro de medida de pressão sanguínea em pontos no tempo específicos, ou em faixas de intervalos (+/-funções matemáticas).",
+          "misuse" : "Não deve ser usada para registrar pressão intravenosa.\r\nNão deve ser usada para medida da pressão arterial que NÃO é um substituto da pressão arterial na circulação sistêmica, por exemplo, medida específica da pressão da artéria Pulmonar direita.\r\nEm ambas situações use OBSERVATION.intravascular_pressure e especializações relacionadas.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "el" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "el"
+          },
+          "purpose" : "Για την καταγραφή της συστηματικής αρτηριακής πίεσης ενός ατόμου.",
+          "keywords" : [ "Παρατηρήσεις", "μέτρηση", "ΒΡ", "Ζωτικά σημεία", "μέση αρτηριακή πίεση", "παλμική πίεση", "Συστολική", "Διαστολική", "RR", "NIBP" ],
+          "use" : "*Use to record all representations of systemic arterial blood pressure measurement, no matter which method or body location is used to record it. \r\n\r\nThe archetype is intended to capture blood pressure measurements in all clinical scenarios - for example:\r\n- self-measurement with a home blood pressure machine; \r\n- an emergency assessment of systolic using palpation and a sphygmomanometer; \r\n- measurements taken in clinical consultations or during exercise stress testing; and \r\n- a series of measurements made by a machine in Intensive Care.   \r\n\r\nThere is a rich state model that supports interpretation of measurements through identifying patient position, exercise, confounding factors and angle of a tilt table in research. \r\n\r\nNamed events have been limited to average over a 24 hour period, however templates can further constrain the default 'any event' to cater for specific requirements for blood pressure measurements such as recording Blood Pressure against specific points in time, or over a range of intervals (+/- mathematical functions).(en)",
+          "misuse" : "*Not to be used to record the measurement of arterial blood pressure which is NOT a surrogate for arterial pressure in the systemic circulation eg specific measurement of right pulmonary artery pressure. Use OBSERVATION.intravascular_pressure in this situation.  \r\n\r\nNot to be used to record measurements of intravenous pressure. Use the appropriate specialisations of OBSERVATION.intravascular_pressure in this situation.(en)",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ar-sy" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ar-sy"
+          },
+          "purpose" : "لتسجيل ضغط الدم الشرياني النظامي للشخص",
+          "keywords" : [ "الملاحظات", "القياس", "ضغط الدم", "العلامات الحياتية", "متوسط الضغط الشرياني", "الضغط عند النبض", "الانقباضي", "الانبساطي", "معدل التنفس", "قياس ضغط الدم غير الباضع" ],
+          "use" : "يستخدم لتسجيل جميع طرق عرض ضغط الدم الشرايني النظامي, بغض النظر عن الطريقة أو الموضع من الجسم المستخدم في التسجيل.\r\n\r\nيستخدم هذا النموذج لالتقاط قياسات ضغط الدم في جميع السيناريوهات السريرية - مثلا, قياس ضغط الدم بواسطة الشخص لنفسه باستخدام آلة القياس المنزلية, تقييم الضغط الانقباضي في حالة الطوارئ باستخدام المجس و مقياس الضغط الزئبقي, القياسات التي تم أخذها في الاستشارات السريرية أو في أثناء اختبار الضغط البدني, و سلسلة من القياسات التي تتم باستخدام آلات العناية المركزة.\r\n\r\nيستخدم هذا النموذج الغني في تسجيل حالات القياس من خلال تفسيره في ضوء وضع المريض عند القياس, المجهود البدني, العوامل المربكة, و زاوية انحناء الطاولة المستخدمة عند القياس.\r\n\r\nتم تحديد بعض الوقائع إلى المتوسط خلال 24 ساعة, إلا أن القوالب تستطيع تقييد الاختيار التلقائي (إحدى الوقائع) لمتطلبات معينة حول قياسات ضغط الدم مثل تسجيل ضغط الدم في نقاط زمنية معينة أو خلال مدى من الفواصل الزمنية - زائد أو ناقص دوال حسابية",
+          "misuse" : "لا يستخدم لتسجيل الضغط داخل الوريد.\r\nلا يستخدم لقياس ضغط الدم الشرياني الذي لا يحل بديلا عن ضغط الدم الشرياني في الدورة الجهازية مثل قياسات معينة لضغط الشريان الرئوي الأيمن.\r\nاستخدم نموذج ملاحظة. الضغط داخل الأوعية الدموية , و التخصيصات المتعلقة في كل من هذين الموقفين.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "en" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "en"
+          },
+          "purpose" : "To record the systemic arterial blood pressure of an individual.",
+          "keywords" : [ "observations", "measurement", "bp", "vital signs", "mean arterial pressure", "pulse pressure", "systolic", "diastolic", "RR", "NIBP" ],
+          "use" : "Use to record all representations of systemic arterial blood pressure measurement, no matter which method or body location is used to record it. \r\n\r\nThe archetype is intended to capture blood pressure measurements in all clinical scenarios - for example:\r\n- self-measurement with a home blood pressure machine; \r\n- an emergency assessment of systolic using palpation and a sphygmomanometer; \r\n- measurements taken in clinical consultations or during exercise stress testing; and \r\n- a series of measurements made by a machine in Intensive Care.   \r\n\r\nThere is a rich state model that supports interpretation of measurements through identifying patient position, exercise, confounding factors and angle of a tilt table in research. \r\n\r\nNamed events have been limited to average over a 24 hour period, however templates can further constrain the default 'any event' to cater for specific requirements for blood pressure measurements such as recording Blood Pressure against specific points in time, or over a range of intervals (+/- mathematical functions).",
+          "misuse" : "Not to be used to record the measurement of arterial blood pressure which is NOT a surrogate for arterial pressure in the systemic circulation eg specific measurement of right pulmonary artery pressure. Use OBSERVATION.intravascular_pressure in this situation.  \r\n\r\nNot to be used to record measurements of intravenous pressure. Use the appropriate specialisations of OBSERVATION.intravascular_pressure in this situation.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "zh-cn" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "zh-cn"
+          },
+          "purpose" : "旨在记录一个人的体循环血压（systemic blood pressure，全身血压，系统血压）。此测量结果原始型记录的是收缩压和舒张压，所采取的记录方式适合于视为代表全身体循环血压的结果。",
+          "keywords" : [ "观察", "观测", "观察指标", "观测指标", "观察结果", "观测结果", "观察项目", "观测项目", "检测", "测量", "测定", "检测指标", "测量指标", "测定指标", "检测结果", "测量结果", "测定结果", "检测项目", "测量项目", "测定项目", "血压", "blood pressure", "bp", "生命体征", "体征", "平均动脉压", "脉压", "脉搏压", "收缩压", "舒张压", "收缩期", "舒张期", "RR", "无创性测压法", "non-invasive blood pressure", "NIBP" ],
+          "use" : "用于记录体循环血压测量结果的所有表达形式，无论其用于记录结果的究竟是什么方法或身体位置。本原始型旨在采集所有临床场景下的血压测量结果；例如，采用家用血压测量仪进行的自助检测、采用触诊方法和血压计进行的收缩压紧急评估、临床会诊或运动负荷试验过程中进行的测量以及重症监护过程中利用仪器所完成的一系列测量。\r\n这是一个丰富的状态模型，支持通过确定患者体位、运动情况、干扰因素以及研究工作所采用的倾斜工作台的角度，来解释测量结果。\r\n具名事件（named events）仅限于24小时期间的均值；不过，可以利用模板来进一步约束默认的“any event”（任何事件），以满足关于血压测量的具体需要，诸如按具体的时间点（时刻）来记录血压，或者是记录为变化范围（+/-数学函数）。",
+          "misuse" : "并不用于静脉内血压。\r\n并不用于并非代表体循环动脉压的动脉血压的测量，如右肺动脉压的专用测量指标。\r\n在上述这两种情况下，请采用血管内压力观察指标原始型（OBSERVATION.intravascular_pressure）及相关的特化形式。",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es"
+          },
+          "purpose" : "Registro de la presión arterial sistémica de un paciente.",
+          "keywords" : [ "observaciones", "medición", "presión arterial", "signos vitales", "presión arterial media", "presión del pulso", "sistólica", "diastólica", "FR", "PANI" ],
+          "use" : "Utilícese para registrar todas las mediciones de la presión arterial sistémica, independientemente del método o la ubicación corporal que se utilice para registrarla. \r\n\r\nEl arquetipo está diseñado para capturar mediciones de la presión arterial en todos los escenarios clínicos, por ejemplo:\r\n- automedición con un tensiómetro doméstico;\r\n- evaluación de emergencia de la presión sistólica mediante palpación y esfigmomanómetro;\r\n- mediciones realizadas en consultas clínicas o durante pruebas de esfuerzo; y\r\n- una serie de mediciones realizadas por una máquina en cuidados intensivos. \r\n\r\nExiste un modelo de estado muy completo que permite interpretar las mediciones mediante la identificación de la posición del paciente, el ejercicio, los factores de confusión y el ángulo de una mesa basculante en la investigación. \r\n\r\nLos eventos nombrados se han limitado a la media de un periodo de 24 horas, sin embargo, las plantillas pueden restringir aún más el «cualquier evento» predeterminado para adaptarse a requisitos específicos de las mediciones de la presión arterial, como el registro de la presión arterial en momentos específicos o en un rango de intervalos (+/- funciones matemáticas).",
+          "misuse" : "No debe utilizarse para registrar la medición de la presión arterial, que NO es un sustituto de la presión arterial en la circulación sistémica, por ejemplo, la medición específica de la presión de la arteria pulmonar derecha. En este caso, utilice OBSERVATION.intravascular_pressure.\r\n\r\nNo debe utilizarse para registrar mediciones de la presión intravenosa. En este caso, utilice las especializaciones adecuadas de OBSERVATION.intravascular_pressure.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "es-ar" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "es-ar"
+          },
+          "purpose" : "Registrar la presión arterial sistémica de un individuo",
+          "keywords" : [ "observaciones(sp)", "mediciones(sp)", "presión arterial(sp)", "signos vitales(sp)", "presión arterial media(sp)", "presión pulso(sp)", "sistólica(sp)", "diastólica(sp)", "RR(en)", "Presión Arterial No Invasiva(sp)", "PANI(sp)" ],
+          "use" : "Usar para registrar todas las representaciones de la presión arterial sistémica, sin importar que método o localización del cuerpo se use para el registro. El arquetipo se usa para capturar la medida de la presión arterial en todos los escenarios clínicos - por ejemplo: automedición con un tensiómetro de uso domiciliario; la evaluación en situación de emergencia, de la sistólica usando palpación y un esfingomanómetro; medidas tomadas durante la consulta clínica o durante la prueba de esfuerzo (ergometría); y la serie de medidas automáticas hechas en la Unidad de Cuidados Intensivos.\r\nExiste un variado modelo de situaciones que soporta la interpretación de mediciones a través de la interpretación de la posición del paciente, ejercicio, factores confluentes y el ángulo de inclinación de la camilla en situaciones de investigación.\r\nLos eventos se han limitado a promediarse sobre un intervalo de 24 horas, sin embargo plantillas pueden acotar la medida por defecto 'cualquier evento' para ajustarse a requerimientos específicos de medida de la presión arterial como el Registro de la Tensión Arterial durante momentos específicos de tiempo, o sobre un rango de intervalos (+/- funciones matemáticas)\r\n\r\n ",
+          "misuse" : "No debe usarse para la presión intravenosa\r\nNo debe usarse para la medida de la presión arterial que NO deriva de la presión arterial de la circulación sistémica ej: la medida específica de la presión de la arteria Pulmonar (presión capilar)\r\nUsen Observación.presión_intravascular y especializaciones relacionadas para estas dos situaciones en particular.\r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nb" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nb"
+          },
+          "purpose" : "For registrering av et individs systemiske arterielle blodtrykk.",
+          "keywords" : [ "BT", "NIBP", "pulstrykk", "pulsamplitude", "MAP", "IBP", "IBPM", "ABP", "ambulatorisk", "24t", "BP", "ikke-invasivt", "invasivt", "NIBPS", "NIBPD", "NIBPM", "middelarterietrykk", "SAP", "DAP", "PP", "systolisk", "diastolisk", "blodtrykk" ],
+          "use" : "Brukes til å registrere alle typer av systemisk arteriell blodtrykksmåling, uansett hvilken metode eller kroppsplassering som anvendes. Arketypen er ment for registrering av blodtrykksmåling i alle kliniske scenarier - for eksempel selvmåling med blodtrykksapparat hjemme, akutt måling av det systoliske blodtrykket ved radialispalpasjon og et sfygmomanometer, målinger tatt i kliniske konsultasjoner eller under trening/stresstesting, eller en serie med invasive eller noninvasive målinger i en intensivavdeling.\r\n\r\nArketypen understøtter registrering av målinger tatt under de fleste forhold med hensyn til individets stilling (liggende/sittende/stående osv.), under trening inklusiv kompliserende faktorer som for eksempel vinkelen på leiet i forbindelse med forskning.\r\n\r\nSpesifiserte hendelser er begrenset til gjennomsnittstrykket gjennom en periode på 24 timer, men i templates kan man ved hjelp av \"uspesifisert hendelse\" oppfylle spesifikke krav til blodtrykksmåling, som registrering av blodtrykk på bestemte tidspunkter, serier av målinger, eller over en periode (med eller uten matematiske funksjoner som minimum eller maksimum).",
+          "misuse" : "Anvendes ikke til sentralvenøst trykk. \r\n\r\nAnvendes ikke til måling av arterielle blodtrykk som ikke representerer et systemisk arterielt trykk f.eks spesifikk måling av pulmonalt arterietrykk.\r\n\r\nBruk OBSERVATION.intravascular_pressure og relaterte spesialiseringer i disse situasjonene.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ja" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ja"
+          },
+          "purpose" : "個々人の全身における動脈血圧を記録するためのもの。",
+          "keywords" : [ "観察", "測定", "血圧", "バイタルサイン", "平均動脈圧", "脈圧", "収縮期", "拡張期", "RR間隔", "非観血血圧" ],
+          "use" : "測定方法や身体部位を問わず、すべての血圧についての表現を記録するために使用される。このアーキタイプはすべての臨床シナリオを網羅することを目指している。以下に例を挙げる。\r\n- 家庭用血圧計で自己測定した血圧\r\n- 緊急時の評価として触診法で血圧計で測定された収縮期圧\r\n- 臨床上のコンサルテーションや運動負荷テストの間に測定されたもの\r\n- 集中治療において機械的に計測された一連の血圧などである。\r\n患者の体位や運動負荷、交絡因子やティルト台の角度など識別することにより、研究にて計測状態の解釈を手助けする豊富なステートモデルもある。\r\n24時間平均血圧だけが特定のイベントとして名前がつけられているが、テンプレートではデフォルトの「任意のイベント」にさらなる制約を加えることで、特定の時間や間隔を指定したり（数学的機能を追加したり、削除して）、血圧を記録するように、血圧測定に対する特定の要求を行ったイベントを指定することができる。",
+          "misuse" : "たとえば、右肺動脈の血圧を特定の計測を行うように全身循環を表す指標としての代わりとならないような動脈血圧の測定には用いない。このような場合には、OBSERVATION.intravascular_pressureを利用すること。\r\n血管内圧の測定には用いられない。このような場合には、適切に特殊化されたOBSERVATION.intravascular_pressureを利用すること",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "fa" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "fa"
+          },
+          "purpose" : "ثبت نمودن فشار خون وریدی کل یک فرد",
+          "keywords" : [ "مشاهدات", "اندازه گیری", "فشار خون", "علایم حیاتی", "میانگین فشار وریدی", "فشار نبض", "سیستولیک", "دیاستولیک", "تنفسهای سریع", "فشار خون غیر تهاجمی" ],
+          "use" : "برای ثبت هر چیز نشاندهنده اندازه گیری فشاره خون وریدی کل، جدا از ابنکه برای ثبت آن از چه شیوه ای یا کدام بخش از بدن استفاده شده باشد، بکار می رود. این الگوساز برای گردآوری اندازه گیری فشار خون در همه سناریوهای بالینی طراحی شده است، مانند اندازه گیری توسط خود فرد بوسیله دستگاه فشار خون خانگی، ارزیابی اورژانسی سیستولیک با لمس نبض و یک \"فشارسنج خون\"، اندازه گیریهای انجام گرفته در مشاوره بالینی یا حین تست ورزشی، و یا یک رشته از اندازه گیریهای دستگاه مراقبت های ویژه.\r\nمدل حالت توانمندی وجود دارد که تفسیر اندازه گیری ها را از طریق شناسایی موقعیت بیمار، ورزش، فاکتورهای مبهم و تست تخت شیبدار، پشتیبانی می کند.\r\nرویدادهای نام گذاری شده بگونه ای محدود شده اند که روی یک دوره 24 ساعته میانگین گیری کنند هر چند که الگو ها می توانند پیش فرض -هر گونه  رویداد- را برای فراهم کردن خواسته های خاص از اندازه گیری فشار خون، با محدودیتهایی نظیر ثبت فشار خون سر وقت یا روی رنجی از فاصله های زمانی (با عمل جمع یا منها)، بیشتر محدود کنند \r\n",
+          "misuse" : "برای فشار داخل وریدی استفاده نشود.\r\nبرای اندازه گیری فشار خون وریدی نباید استفاده شود که جایگزینی برای فشار وریدی در گردش خون کلی نیست، بعنوان مثال اندازه گیری خاص فشار وریدی ریه راست.\r\n\r\n و تخصص های مربوطه برای موارد بالا بکار رود\"OBSERVATION.intravascular_pressure\"\r\n \r\n",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "nl" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "nl"
+          },
+          "purpose" : "Het registreren van de systemische arteriële bloeddruk van een individu.",
+          "keywords" : [ "observaties", "meting", "blddr", "vitale functies", "gemiddelde arteriële druk", "polsdruk", "systolisch", "diastolisch", "RR", "NIBP", "tensie" ],
+          "use" : "Wordt gebruikt om alle weergaven van de systemische bloeddruk te registreren, ongeacht welke methode of welke lichaamslocatie is gebruikt om de meting te doen. \r\n\r\nHet archetype is bedoeld om bloeddruk metingen in alle klinische scenario's vast te leggen - bijvoorbeeld:\r\n- zelf-meting met een thuis bloeddrukmeter; \r\n- een nood beoordeling van de systolische bloeddruk met behulp van palpatie en een drukmanchet; \r\n- metingen tijdens consulten, overleg of tijdens inspannings stress testen, en \r\n- een reeks van metingen die door een apparaat zijn gedaan in de intensieve zorg.\r\n\r\nEr is een uitgebreid status model dat interpretatie van metingen ondersteunt, door patiënt positie, inspanning, beïnvloedende factoren en de hoek/het aantal graden waarin de onderzoekstafel staat, te specificeren.\r\n\r\nGenoemde gebeurtenissen zijn gelimiteerd tot een gemiddelde over een periode van 24 uur, maar templates kunnen de standaard 'iedere gebeurtenis' verder vernauwen om specifieke eisen voor de bloeddrukmeting, zoals registreren van de bloeddruk op een specifiek tijdsmoment, of over een reeks van intervallen (+/- statistisch gebruik) te faciliteren.\r\n",
+          "misuse" : "Niet te gebruiken voor de meting van de arteriële bloeddruk welke geen surrogaat is voor de arteriële druk in de systemische circulatie, bv de specifieke meting van de rechter arterie pulmonalis druk.\r\nGebruik OBSERVATION.intravascular_pressure in deze situatie.\r\n\r\nNiet te gebruiken voor intraveneuze druk. Gebruik een van de OBSERVATION.intravascular_pressure specialisaties in deze situatie.",
+          "copyright" : "© openEHR Foundation",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        },
+        "ca" : {
+          "@type" : "RESOURCE_DESCRIPTION_ITEM",
+          "language" : {
+            "terminologyId" : {
+              "value" : "ISO_639-1"
+            },
+            "codeString" : "ca"
+          },
+          "purpose" : "Registrar la pressió arterial d'un pacient.",
+          "keywords" : [ "observacions", "mesura", "pressió arterial", "signes vitals", "pressió arterial mitjana", "pressió de pols", "sistòlica", "diastòlica", "freqüència respiratòria", "pressió arterial no invasiva" ],
+          "use" : "Utilitzar per a registrar totes les representacions de la mesura sistemàtica de la pressió arterial, independentment del mètode o la part del cos que s'utilitzi per registrar-la. \r\n\r\nL'arquetip està destinat a capturar mesures de la pressió arterial en tots els escenaris clínics, per exemple: \r\n\r\n- automedició amb un tensiòmetre domèstic; \r\n\r\n- avaluació d'emergència de la pressió arterial sistòlica mitjançant la palpitació i un esfigmomanòmetre; \r\n\r\n- mesures preses en consultes clíniques o durant proves d'esforç físic; i\r\n\r\n- mesures realitzades per una màquina a la Unitat de Cures Intensives.",
+          "misuse" : "No utilitzar per a registrar la mesura de la pressió arterial que NO sigui substituta de la pressió arterial de la circulació sistemàtica. Per exemple, una mesura específica de la pressió de l'artèria pulmonar dreta. Utilitzar OBSERVATION.intravascular_pressure en aquesta situació. \r\n\r\n No utilitzar per registrar mesures de pressió intravenosa. Utilitzar les especialitzacions apropiades de OBSERVATION.intravascular_pressure en aquesta situació.",
+          "originalResourceUri" : { },
+          "otherDetails" : { }
+        }
+      }
+    },
+    "parentArchetypeId" : "openEHR-EHR-OBSERVATION.blood_pressure.v2",
+    "differential" : true,
+    "archetypeId" : {
+      "@type" : "ARCHETYPE_HRID",
+      "value" : "openEHR-EHR-OBSERVATION.ovl-blood_pressure-002.v2"
+    },
+    "definition" : {
+      "@type" : "C_COMPLEX_OBJECT",
+      "rmTypeName" : "OBSERVATION",
+      "nodeId" : "at0000.1",
+      "attributes" : [ {
+        "@type" : "C_ATTRIBUTE",
+        "rmAttributeName" : "data",
+        "children" : [ {
+          "@type" : "C_COMPLEX_OBJECT",
+          "rmTypeName" : "HISTORY",
+          "nodeId" : "at0001",
+          "attributes" : [ {
+            "@type" : "C_ATTRIBUTE",
+            "rmAttributeName" : "events",
+            "children" : [ {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "EVENT",
+              "nodeId" : "at0006",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "state",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0007.1",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            }, {
+              "@type" : "C_COMPLEX_OBJECT",
+              "rmTypeName" : "INTERVAL_EVENT",
+              "nodeId" : "at1042",
+              "attributes" : [ {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "data",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0003.2",
+                  "targetPath" : "/data[at0001]/events[at0006]/data[at0003.1]",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              }, {
+                "@type" : "C_ATTRIBUTE",
+                "rmAttributeName" : "state",
+                "children" : [ {
+                  "@type" : "C_COMPLEX_OBJECT",
+                  "rmTypeName" : "ITEM_TREE",
+                  "nodeId" : "at0007.2",
+                  "targetPath" : "/data[at0001]/events[at0006]/state[at0007.1]",
+                  "attributes" : [ ],
+                  "attributeTuples" : [ ]
+                } ]
+              } ],
+              "attributeTuples" : [ ]
+            } ]
+          } ],
+          "attributeTuples" : [ ]
+        } ]
+      } ],
+      "attributeTuples" : [ ]
+    },
+    "terminology" : {
+      "@type" : "ARCHETYPE_TERMINOLOGY",
+      "conceptCode" : "at0000",
+      "termDefinitions" : {
+        "en" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000.1",
+            "text" : "Blood pressure (2)",
+            "description" : "The local measurement of arterial blood pressure which is a surrogate for arterial pressure in the systemic circulation.",
+            "comment" : "Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm."
+          }
+        },
+        "ja" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "血圧 (2)",
+            "description" : "全身を循環する動脈圧の指標として，局所で測定される血圧。一般的には「血圧」とは上腕で上腕動脈圧を測定したものをさすことが多い。",
+            "comment" : "ごく一般的には「血圧」という用語は上腕で計測される上腕動脈の圧を示している。"
+          }
+        },
+        "de" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Blutdruck (2)",
+            "description" : "Die lokale Messung des arteriellen Blutdrucks als Surrogat für den arteriellen Druck in der systemischen Zirkulation.",
+            "comment" : "Häufig wird der Ausdruck 'Blutdruck' zur Bezeichung der Messung des brachialen Ateriendrucks im Oberarm verwendet."
+          }
+        },
+        "zh-cn" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "血压 (2)",
+            "description" : "代表体循环动脉压的动脉血压的局部测量。",
+            "comment" : "最为常见的情况下是，利用术语“血压”来指称上臂肱动脉压的测量结果。"
+          }
+        },
+        "nl" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Bloeddruk (2)",
+            "description" : "De lokale meting van de arteriële bloeddruk, welke surrogaat is voor de arteriële druk in de systemische circulatie.",
+            "comment" : "Meest gebruikelijk is dat de term 'bloeddruk' refereert aan de meting van de bloeddruk van de arterie brachialis in de bovenarm."
+          }
+        },
+        "ru" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "АД (2)",
+            "description" : "Локальное измерение артериального давления, которое является суррогатом артериального давления в системном кровотоке. Как правило, термин относится к давления плечевой артерии на предплечье.\r\n",
+            "comment" : "*Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm.(en)"
+          }
+        },
+        "fa" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "فشار خون (2)",
+            "description" : "اندازه گیری موضعی فشار خون وریدی، که جایگزینی برای فشار وریدی در گردش خون کلی است.\r\nمعمولا واژه \"فشار خون\" به اندازه گیری فشار ورید بازویی در روی بازو گفته می شود"
+          }
+        },
+        "ar-sy" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "ضغط الدم (2)",
+            "description" : "قياس موضعي لضغط الدم الشرياني و الذي يحل محل الضغط الشرياني في الدورة الدموية الجهازية. \r\nو عادة ما يستخدم مصطلح \"ضغط الدم\" لللإشارة إلى قياس ضغط دم الشريان العضُدي في أعلى الذراع."
+          }
+        },
+        "es-ar" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Presión Arterial (2)",
+            "description" : "La medición local de la tensión arterial que deriva de la medida de la presión arterial en la circulación sistémica. Comúnmente el uso de 'presión arterial' se refiere a la medida de la presión de la arteria braquial por encima del pliegue del codo."
+          }
+        },
+        "pt-br" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Pressão Arterial (2)",
+            "description" : "A medida local da pressão sanguínea arterial, a qual é uma substituta da pressão arterial na circulação arterial sistêmica. Mais comumente o uso do termo pressão arterial se refere à medida da pressão da artéria braquial no antebraço.",
+            "comment" : "*Most commonly, use of the term 'blood pressure' refers to measurement of brachial artery pressure in the upper arm.(en)"
+          }
+        },
+        "ko" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "혈압 (2)",
+            "description" : "체순환에서 동맥압을 대신하는 동맥혈압의 국소 측정. 보통은 '혈압'이라는 용어의 사용은 상완에서 상완동맥의 측정을 의미함."
+          }
+        },
+        "es" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Presión arterial (2)",
+            "description" : "La medición local de la presión arterial, que es un sustituto de la presión arterial en la circulación sistémica.",
+            "comment" : "Por lo general, el término «presión arterial» se refiere a la medición de la presión en la arteria braquial, situada en la parte superior del brazo."
+          }
+        },
+        "nb" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Blodtrykk (2)",
+            "description" : "Måling av blodtrykket som uttrykk for det arterielle blodtrykk i det systemiske kretsløp.",
+            "comment" : "Vanligvis brukes begrepet \"blodtrykk\" om måling av brakialt arterietrykk i overarmen."
+          }
+        },
+        "sv" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Blodtryck (2)",
+            "description" : "Den lokala mätningen av artärblodtrycket som är ett substitut för artärtryck i den systemiska cirkulationen.",
+            "comment" : "Vanligtvis refererar användningen av termen blodtryck till mätningen av brakialartärtrycket i överarmen."
+          }
+        },
+        "fi" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Verenpaine (2)",
+            "description" : "Paikallisen valtimopaineen mittaustulos, joka toimii korvikkeena systeemisen verenkierron valtimopaineelle. Termillä \"verenpaine\" viitataan yleensä olkavarresta tehtävään olkavarsivaltimon paineen mittaustulokseen.",
+            "comment" : "Yleisimmin termi \"verenpaine\" viittaa olkavarsivaltimon paineen mittaamiseen yläraajasta."
+          }
+        },
+        "ca" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Pressió arterial (2)",
+            "description" : "La mesura local de la pressió arterial, que és una substituta de la pressió arterial a la circulació sistèmica.",
+            "comment" : "Majoritàriament, l'ús del terme «pressió arterial» fa referència a la mesura de la pressió de l'artèria braquial a la part superior del braç."
+          }
+        },
+        "el" : {
+          "at0000.1" : {
+            "@type" : "ARCHETYPE_TERM",
+            "code" : "at0000",
+            "text" : "Πίεση αίματος (2)",
+            "description" : "Η τοπική μέτρηση της αρτηριακής πίεσης που είναι υποκατάστατο της αρτηριακής πίεσης στη συστηματική κυκλοφορία.",
+            "comment" : "Συνηθέστερα, η χρήση του όρου «αρτηριακή πίεση» αναφέρεται στη μέτρηση της πίεσης της βραχιόνιας αρτηρίας στο άνω μέρος του βραχίονα."
+          }
+        }
+      },
+      "termBindings" : {
+        "SNOMED-CT" : {
+          "at0000.1" : "term:SNOMED-CT(2003)::364090009"
+        }
+      },
+      "terminologyExtracts" : { },
+      "valueSets" : { }
+    },
+    "adlVersion" : "1.4",
+    "buildUid" : "d5acda15-3468-4043-8e68-55b4507881b7",
+    "rmName" : "openehr",
+    "rmRelease" : "1.1.0",
+    "generated" : true,
+    "otherMetaData" : { },
+    "originalLanguage" : {
+      "terminologyId" : {
+        "value" : "ISO_639-1"
+      },
+      "codeString" : "en"
+    },
+    "translations" : [ {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "de"
+      },
+      "author" : {
+        "name" : "Sebastian Garde, Jasmin Buck",
+        "organisation" : "Ocean Informatics, University of Heidelberg"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ru"
+      },
+      "author" : {
+        "name" : "Igor Lizunov",
+        "email" : "i.lizunov@infinnity.ru"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "sv"
+      },
+      "author" : {
+        "name" : "Kirsi Poikela, Sofia Janstad, Manna Vosta, Åsa Skagerhult",
+        "organisation" : "Tieto Sweden AB, SLL, Karolinska University Hospital, Västra Götalandsregionen",
+        "email" : "ext.kirsi.poikela@tieto.com, sofia.lang-janstad@sll.se, manna.vosta@regionstockholm.se, asa.skagerhult@vgregion.se"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fi"
+      },
+      "author" : {
+        "name" : "Vesa Peltola, Heidi Koikkalainen",
+        "organisation" : "Tietoevry, Finland",
+        "email" : "vesa.peltola@tieto.com, heidi.koikkalainen@freshehr.com"
+      },
+      "otherDetails" : {
+        "other_contributors" : "Riikka Lahtela, Istekki, Finland\r\nHenri Huttunen, Una Oy, Finland\r\nAnna-Leena Karvonen, Tietoevry, Finland"
+      }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ko"
+      },
+      "author" : {
+        "name" : "Seung-Jong Yu",
+        "organisation" : "NOUSCO Co.,Ltd.",
+        "email" : "seungjong.yu@gmail.com"
+      },
+      "accreditation" : "Certified Board of Family Medicine in South Korea",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "pt-br"
+      },
+      "author" : {
+        "name" : "Jussara Rözsch",
+        "organisation" : "OpenEHR Foundation",
+        "email" : "jussara.macedo@gmail.com"
+      },
+      "accreditation" : "Medical Doctor, Psychiarist, Clinical Modeller, openEHR Diretor, ehealth infostructuture WG ccoordinator- brazilian ehealth program",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "el"
+      },
+      "author" : {
+        "name" : "Erasmia Partafylla",
+        "organisation" : "Sigmasoft",
+        "email" : "c.partafylla@sigmasoft.gr"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ar-sy"
+      },
+      "author" : {
+        "name" : "Mona Saleh"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "zh-cn"
+      },
+      "author" : {
+        "name" : "Chunlan Ma; Lin Zhang",
+        "organisation" : "Ocean Informatics; Taikang Insurance Group",
+        "email" : "chunlan.ma@oceaninformatics.com; linforest@163.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es"
+      },
+      "author" : {
+        "name" : "Pablo Pazos, Clara Calleja Vega",
+        "organisation" : "CaboLabs, CatSalut. Servei Català de la Salut.",
+        "email" : "ccalleja@catsalut.cat"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "es-ar"
+      },
+      "author" : {
+        "name" : "Domingo Liotta",
+        "organisation" : "Universidad de Morón",
+        "email" : "domingo_liotta@hotmail.com"
+      },
+      "accreditation" : "Universidad de Morón",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nb"
+      },
+      "author" : {
+        "name" : "Lars Bitsch-Larsen",
+        "organisation" : "Haukeland Uinversity Hospital, Bergen, Norway",
+        "email" : "lbla@helse-bergen.no"
+      },
+      "accreditation" : "MD, DEAA. specialist in anaesthesia and tropical medicine.",
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ja"
+      },
+      "author" : {
+        "name" : "Shinji Kobayashi",
+        "organisation" : "NPO openEHR Japan",
+        "email" : "skoba@moss.gr.jp"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "fa"
+      },
+      "author" : {
+        "name" : "Shahla Foozonkhah",
+        "organisation" : "Ocean Informatics",
+        "email" : "shahla.foozonkhah@oceaninformatics.com"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "nl"
+      },
+      "author" : {
+        "name" : "Marja Buur, Sebastian Iancu",
+        "organisation" : "M.C.A., Code24 BV",
+        "email" : "m.buur-krom@mca.nl, sebastian@code24.nl"
+      },
+      "otherDetails" : { }
+    }, {
+      "@type" : "TRANSLATION_DETAILS",
+      "language" : {
+        "terminologyId" : {
+          "value" : "ISO_639-1"
+        },
+        "codeString" : "ca"
+      },
+      "author" : {
+        "name" : "Manuel José Zafra Doménech",
+        "organisation" : "TRADCREA, S.L.",
+        "email" : "mzafra@tradcrea.com"
+      },
+      "otherDetails" : {
+        "other_contributors" : "Servei Català de la Salut"
+      }
     } ]
   } ],
   "originalLanguage" : {
